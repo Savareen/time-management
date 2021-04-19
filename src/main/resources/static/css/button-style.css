@@ -1,0 +1,84 @@
+.main-button {
+  padding-left: 1rem;
+}
+.btn {
+  width: 7.6rem;
+  height: 2.4rem;
+  background: none;
+  border: 4px solid;
+  color: #bc4123;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 0.9em;
+  position: relative;
+  border-radius: 3px;
+  outline: none;
+}
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 4px;
+  background: rgb(84, 80, 87);
+  transform: skewX(50deg);
+  transition: 0.4s linear;
+}
+
+.find::before,
+.find::after {
+  background: rgb(27, 35, 49);
+}
+.btn::before {
+  top: -4px;
+  left: 10%;
+}
+
+.btn::after {
+  bottom: -4px;
+  right: 10%;
+}
+
+.btn:hover::before {
+  left: 80%;
+}
+
+.btn:hover::after {
+  right: 80%;
+}
+
+.by-id {
+  margin-top: 1rem;
+}
+
+.by-id::before,
+.by-id::after {
+  background: rgb(27, 35, 49);
+}
+.register::before,
+.register::after {
+  background: rgb(68, 70, 81);
+}
+.logout::before,
+.logout::after {
+  background: rgb(84, 80, 87);
+}
+.update::before,
+.update::after,
+.login::before,
+.login::after {
+  background: white;
+}
+
+.update-btn button {
+  position: absolute;
+  bottom: 4rem;
+  right: 4rem;
+}
+
+.delete-btn button {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+}

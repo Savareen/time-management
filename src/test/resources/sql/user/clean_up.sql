@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS users, auditoriums, classes, time_tables, students, teachers, courses, groups CASCADE;
+DROP SEQUENCE IF EXISTS user_sequence, teacher_sequence, group_sequence, student_sequence, auditorium_sequence, course_sequence, class_sequence, time_table_sequence CASCADE;

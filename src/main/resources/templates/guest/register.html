@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management</title>
+    <link rel="icon" th:href="@{/images/logo.svg}" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link th:href="@{/css/register-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/button-style.css}" rel="stylesheet" />
+  </head>
+  <body class="full-height-grow">
+    <header>
+      <div th:insert="fragments/main-header.html :: div"></div>
+    </header>
+    <section class="landing">
+      <div class="container">
+        <div class="table-name">
+          <p>Registration</p>
+        </div>
+        <div class="table-plate">
+          <form th:action="@{/registration}" th:object="${userDTO}" method="post">
+          <div class="form">
+            <div class="user-name">
+              <div class="first-name">
+                <input type="text" th:field="*{firstName}" autocomplete="off" required placeholder="1" />
+                <label class="label-first-name">
+                  <span class="content-name">First Name</span>
+                </label>
+              </div>
+              <div class="last-name">
+                <input type="text" th:field="*{lastName}" autocomplete="off" required placeholder="1" />
+                <label class="label-first-name">
+                  <span class="content-name">Last Name</span>
+                </label>
+              </div>
+            </div>
+            <div class="user-email">
+              <div class="email">
+                <input type="email" th:field="*{email}" autocorrect="off" spellcheck="false" autocomplete="off" required placeholder="1" />
+                <label class="label-first-name">
+                  <span class="content-name">Email address</span>
+                </label>
+              </div>
+              <div class="password">
+                <input type="password" th:field="*{password}" autocorrect="off" spellcheck="false" autocomplete="off" required placeholder="1" />
+                <label class="label-first-name">
+                  <span class="content-name">Password</span>
+                </label>
+              </div>
+            </div>
+            <div class="student-group">
+               <div class="group">
+                <select id="position" class="add select" required th:field="*{position}">
+                  <option th:each="position : ${positions}" th:value="${position}" th:text="${position}"></option>
+                </select>
+                 <label class="label-select">
+                  <span class="content-select">Position</span>
+                </label>
+              </div>
+              <div class="role">
+                <select id="group-id" class="add select" th:field="*{groupId}" disabled="disabled">
+                  <option th:each="group : ${groups}" th:value="${group.id}" th:text="${group.name}"></option>
+                </select>
+                <label class="label-select">
+                  <span class="content-select">Group</span>
+                </label>
+              </div>
+            </div>
+            <div class="update-btn">
+              <button class="btn update">Submit</button>
+            </div>
+            </div>
+            </form>
+            <div class="message">
+              <p th:text="${message}"></p>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer>
+      <div th:insert="fragments/main-footer.html :: div"></div>
+    </footer>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script th:src="@{/js/loadcheck.js}"></script>
+    <script th:src="@{/js/selectcontroller.js}"></script>
+  </body>
+</html>

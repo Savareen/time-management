@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(
+      to right bottom,
+      rgba(11, 23, 42, 0.9),
+      rgba(70, 57, 64, 0.8)
+    ),
+    url("../images/index-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.full-height-grow {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40;
+}
+
+.landing {
+  z-index: 1;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background: url("../images/circleWhole.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 64.5%;
+}
+.landing h1 {
+  z-index: 2;
+  font-weight: 600;
+  padding-top: 100px;
+  margin: 30px;
+  font-size: 4.2em;
+  color: white;
+  letter-spacing: 4px;
+}
+.quotes {
+  margin-bottom: 10vh;
+  max-width: 800px;
+}
+
+.benjamin {
+  font-weight: 500;
+  font-size: 1.3em;
+}
+.sing {
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+}

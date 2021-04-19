@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management</title>
+    <link rel="icon" th:href="@{/images/logo.svg}" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link th:href="@{/css/view-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/grid-style.css}" rel="stylesheet" />
+  </head>
+  <body class="full-height-grow">
+    <header>
+      <div th:insert="fragments/admin-header.html :: div"></div>
+    </header>
+    <section class="landing">
+      <div class="dashboard"></div>
+      <div class="container">
+        <div class="grid-container" th:object="${countDTO}">
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/user}" class="iconbtn-user fas fa-user"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Users</label>
+              <p class="data-element" th:text="*{userCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/auditorium}" class="iconbtn-user far fa-building"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Auditoriums</label>
+              <p class="data-element" th:text="*{auditoriumCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/group}" class="iconbtn-user fas fa-users"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Groups</label>
+              <p class="data-element" th:text="*{groupCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/class}" class="iconbtn-user far fa-bell"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Classes</label>
+              <p class="data-element" th:text="*{lectureCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/table}" class="iconbtn-user fas fa-tasks"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Time Tables</label>
+              <p class="data-element" th:text="*{timeTableCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/student}" class="iconbtn-user fas fa-user-graduate"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Students</label>
+              <p class="data-element" th:text="*{studentCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/course}" class="iconbtn-user fas fa-book"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Courses</label>
+              <p class="data-element" th:text="*{courseCount}"></p>
+            </div>
+          </div>
+          <div class="grid-element">
+            <div class="element-icon">
+              <a th:href="@{/admin/view/teacher}" class="iconbtn-user fas fa-chalkboard-teacher"></a>
+            </div>
+            <div class="element">
+              <label class="label-element">Teachers</label>
+              <p class="data-element" th:text="*{teacherCount}"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div th:insert="fragments/admin-footer.html :: div"></div>
+    </footer>
+  </body>
+</html>

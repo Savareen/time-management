@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management</title>
+    <link rel="icon" th:href="@{/images/logo.svg}" />
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"/>
+    <link th:href="@{/css/view-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/input-dashboard-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/admin-table-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/edit-button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/auditorium-style.css}" rel="stylesheet" />
+  </head>
+  <body class="full-height-grow">
+    <header>
+      <div th:insert="fragments/admin-header.html :: div"></div>
+    </header>
+    <section class="landing">
+      <div class="dashboard">
+        <div class="form-dashboard">
+          <form class="input-id" th:action="@{/admin/view/findcourse}">
+            <div class="find-by-id">
+              <input type="number" name="id" min="1" placeholder="1" />
+              <label for="id" class="label-input">
+                <span class="content-name">Enter ID</span>
+              </label>
+            </div>
+            <div>
+              <button type="submit" class="btn by-id">Find</button>
+            </div>
+          </form>
+          <form class="input-interval" th:action="@{/admin/view/showcourse}">
+            <div class="starts">
+              <input type="number" name="offset" min="0" placeholder="1" />
+              <label for="offset" class="label-input">
+                <span class="content-name">Starts</span>
+              </label>
+            </div>
+            <div class="length">
+              <input type="number" name="limit" min="0" placeholder="1" />
+              <label for="limit" class="label-input">
+                <span class="content-name">Length</span>
+              </label>
+            </div>
+            <div>
+              <button type="submit" class="btn by-id">Find</button>
+            </div>
+          </form>
+          <div class="input-add">
+            <form class="add-new" th:action="@{/admin/view/addcourse}">
+              <p>Add New:</p>
+              <button type="submit" class="btn by-id">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="table-name">
+          <p>Course</p>
+        </div>
+        <div class="table-plate">
+          <table class="content-table table-sortable">
+            <thead>
+              <tr>
+                <th class="short-column">ID</th>
+                <th class="medium-column">Course Name</th>
+                <th class="short-column">Edit</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <tr th:each="course : ${courses}">
+                <td th:text="${course.id}"></td>
+                <td th:text="${course.name}"></td>
+                <td class="user">
+                   <a th:href="@{/admin/view/editcourse/{id}(id=${course.id})}" class="iconbtn fas fa-pen-nib"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+           <div class="message">
+            <p th:text="${message}"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+	  <div th:insert="fragments/admin-footer.html :: div"></div>
+    </footer>
+  </body>
+</html>

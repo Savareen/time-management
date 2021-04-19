@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management</title>
+    <link rel="icon" th:href="@{/images/logo.svg}" />
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"/>
+    <link th:href="@{/css/edit-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/edit-button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/view-style.css}" rel="stylesheet" />
+  </head>
+  <body class="full-height-grow">
+    <header>
+      <div class="main-header">
+        <a th:href="@{/user/}" class="brand-logo">
+          <img th:src="@{/images/logo.svg}" />
+          <div class="brand-logo-name">Management</div>
+        </a>
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li><a th:href="@{/user/}">Schedule</a></li>
+            <li class="nav-right-top"><a th:href="@{/user/editprofile/}" th:text="${username}"></a></li>
+            <li class="user">
+              <a th:href="@{/user/editprofile/}" class="iconbtn-user fas fa-user"></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="landing">
+      <div class="dashboard"></div>
+      <div class="container">
+        <div class="table-name">
+          <p>Edit Profile</p>
+        </div>
+        <div class="table-plate">
+        <form th:action="@{/user/update}" th:object="${userDTO}" method="post">
+          <div class="form">
+            <div class="user-name">
+              <div class="first-name">
+                <input type="text" th:field="*{firstName}" required placeholder="1"/>
+                <label for="name" class="label-select">
+                  <span class="content-name">First Name</span>
+                </label>
+              </div>
+              <div class="last-name">
+                <input type="text" th:field="*{lastName}" required placeholder="1"/>
+                <label for="name" class="label-select">
+                  <span class="content-name">Last Name</span>
+                </label>
+              </div>
+            </div>
+            <div class="user-email">
+              <div class="email">
+                <input type="email" th:field="*{email}" required placeholder="1" readonly="readonly"/>
+                <label for="name" class="label-select">
+                  <span class="content-name">Email address: read only</span>
+                </label>
+              </div>
+              <div class="password">
+                <input type="password" th:field="*{password}" placeholder="1" readonly="readonly"/>
+                <label for="name" class="label-select">
+                  <span class="content-name">Password</span>
+                </label>
+              </div>
+            </div>
+            <div class="student-group">
+               <div class="group-position">
+                 <input type="text" th:field="*{position}" placeholder="1" readonly="readonly" />
+                 <label for="name" class="label-select">
+                  <span class="content-select">Position: read only</span>
+                </label>
+              </div>
+              <div class="role" th:if="${userDTO.position eq 'student'}">
+                <select id="group-id" class="add select" th:field="*{groupId}">
+                  <option th:each="group : ${groups}" th:value="${group.id}" th:text="${group.name}"></option>
+                </select>
+                <label for="name" class="label-select">
+                  <span class="content-select">Group</span>
+                </label>
+              </div>
+            </div>
+            <div class="update-btn">
+              <button class="btn update">Update</button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div th:insert="fragments/admin-footer.html :: div"></div>
+    </footer>
+  </body>
+</html>

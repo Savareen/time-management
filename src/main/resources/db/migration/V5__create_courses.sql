@@ -1,0 +1,5 @@
+create table courses (
+	id BIGINT NOT NULL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL UNIQUE
+);
+CREATE SEQUENCE course_sequence as BIGINT INCREMENT 1;

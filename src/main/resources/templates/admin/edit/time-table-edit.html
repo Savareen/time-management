@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management</title>
+    <link rel="icon" th:href="@{/images/logo.svg}" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link th:href="@{/css/view-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/input-table-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/admin-table-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/edit-button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/auditorium-style.css}" rel="stylesheet" />
+  </head>
+  <body class="full-height-grow">
+    <header>
+      <div th:insert="fragments/admin-header.html :: div"></div>
+    </header>
+    <section class="landing">
+      <div class="dashboard"></div>
+      <div class="container">
+        <div class="table-name">
+          <p>Time Table</p>
+        </div>
+        <div class="table-plate">
+          <div class="form-table">
+            <form class="input-id" th:action="@{/admin/edit/addtable}" th:object="${timeTableMap}" method="post">
+              <div class="input-interval">
+                <div class="timer">
+                  <div class="start-time">
+                    <input type="date" th:field="*{date}" autocomplete="off" placeholder="1" />
+                    <label for="name" class="label-select">
+                      <span class="content-select">Date</span>
+                    </label>
+                  </div>
+                  <div class="finish-time" th:if="${timeTableMap.id != null}">
+                    <input type="number" th:field="*{id}" autocomplete="off" placeholder="1" readonly="readonly" />
+                    <label for="name" class="label-input">
+                      <span class="content-select">ID: read only</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="full-length">
+                 <select class="add select" th:field="*{courseId}" >
+                       <option th:each="course : ${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+                    </select>
+                    <label for="name" class="label-select">
+                      <span class="content-select">Course</span>
+                    </label>
+                </div>
+                <div class="user-type">
+                  <div class="role">
+                  <select class="add select" th:field="*{lectureId}" >
+                       <option th:each="lecture : ${lectures}" th:value="${lecture.id}" th:text="${lecture.startTime}"></option>
+                    </select>
+                    <label for="name" class="label-select">
+                      <span class="content-select">Class</span>
+                    </label>
+                  </div>
+
+                  <div class="type">
+                   <select class="add select" th:field="*{auditoriumId}" >
+                       <option th:each="auditorium : ${auditoriums}" th:value="${auditorium.id}" th:text="${auditorium.number}"></option>
+                    </select>
+                    <label for="name" class="label-select">
+                      <span class="content-select">Auditorium</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="user-type">
+                  <div class="role">
+                     <select class="add select" th:field="*{groupId}" >
+                       <option th:each="group : ${groups}" th:value="${group.id}" th:text="${group.name}"></option>
+                    </select>
+                    <label for="name" class="label-select">
+                      <span class="content-select">Group</span>
+                    </label>
+                  </div>
+
+                  <div class="half-length">
+                    <select class="add select" th:field="*{teacherId}" >
+                       <option th:each="teacher : ${teachers}" th:value="${teacher.id}" th:text="${teacher.lastName}"></option>
+                    </select>
+                  <label for="name" class="label-select">
+                    <span class="content-select">Teacher</span>
+                  </label>
+                  </div>
+                </div>
+
+                <div class="create-btn">
+                  <button class="btn update">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+           <div th:if="${timeTableMap.id != null}" class="delete-btn">
+            	<a th:href="@{/admin/edit/deletetable/{id}(id=${timeTableMap.id})}" class="iconbtn-medium far fa-trash-alt"></a>
+            </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+     <div th:insert="fragments/admin-footer.html :: div"></div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management</title>
+    <link rel="icon" th:href="@{/images/logo.svg}" />
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"/>
+    <link th:href="@{/css/view-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/input-table-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/header-footer-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/admin-table-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/edit-button-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/auditorium-style.css}" rel="stylesheet" />
+  </head>
+  <body class="full-height-grow">
+    <header>
+      <div th:insert="fragments/admin-header.html :: div"></div>
+    </header>
+    <section class="landing">
+      <div class="dashboard"></div>
+      <div class="container">
+        <div class="table-name">
+          <p>Course</p>
+        </div>
+        <div class="table-plate">
+          <div class="form-table">
+            <form class="input-id" th:action="@{/admin/edit/addcourse}" th:object="${course}" method="post">
+              <div class="input-interval">
+                <div class="starts" th:if="${course.id != null}">
+                  <input type="number" th:field="*{id}" autocomplete="off" placeholder="1" readonly="readonly"/>
+                  <label for="name" class="label-input">
+                    <span class="content-name">ID read only</span>
+                  </label>
+                </div>
+
+                <div class="length">
+                  <input type="text" th:field="*{name}" autocomplete="off" placeholder="1"/>
+                  <label for="name" class="label-input">
+                    <span class="content-name">Course Name</span>
+                  </label>
+                </div>
+                <div class="create-btn">
+                  <button class="btn update">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div th:if="${course.id != null}" class="delete-btn">
+            <a th:href="@{/admin/edit/deletecourse/{id}(id=${course.id})}" class="iconbtn-medium far fa-trash-alt"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div th:insert="fragments/admin-footer.html :: div"></div>
+    </footer>
+  </body>
+</html>

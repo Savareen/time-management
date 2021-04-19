@@ -1,0 +1,18 @@
+insert into users (id, email, password, role, user_type) values ('1', 'Mike', '123', 'USER', 'teacher');
+insert into users (id, email, password, role, user_type) values ('2', 'Anna', '222', 'USER', 'teacher');
+insert into users (id, email, password, role, user_type) values ('3', 'John', '123', 'USER', 'student');
+insert into users (id, email, password, role, user_type) values ('4', 'Tim', '222', 'USER', 'student');
+insert into groups (id, name) values ('1', 'Anna');
+insert into groups (id, name) values ('2', 'John');
+insert into teachers (id, first_name, last_name, user_id) values ('1', 'Anna', 'User', '1');
+insert into teachers (id, first_name, last_name, user_id) values ('2', 'John', 'Dow', '2');
+insert into students (id, first_name, last_name, group_id, user_id) values ('1', 'Anna', 'User', '1', '3');
+insert into students (id, first_name, last_name, group_id, user_id) values ('2', 'John', 'Dow', '2', '4');
+insert into auditoriums (id, number) values ('1', '101');
+insert into auditoriums (id, number) values ('2', '202');
+insert into courses (id, name) values ('1', 'Art');
+insert into courses (id, name) values ('2', 'Tech');
+insert into classes (id, start_time, finish_time) values ('1', '12:00:00', '12:15:00');
+insert into classes (id, start_time, finish_time) values ('2', '14:00:00', '14:15:00');
+insert into time_tables (id, local_date, class_id, auditorium_id, teacher_id, group_id, course_id) values ('1', '2021-01-30', '1', '1', '1', '1', '1');
+insert into time_tables (id, local_date, class_id, auditorium_id, teacher_id, group_id, course_id) values ('2', '2021-02-21', '1', '1', '1', '1', '1');

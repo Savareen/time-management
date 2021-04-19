@@ -1,0 +1,187 @@
+.form-table {
+  z-index: 3;
+  width: 100%;
+  min-width: 50%;
+  height: 50vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  color: rgba(11, 23, 42, 0.95);
+}
+.input-id,
+.input-interval {
+  position: relative;
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.find-by-id,
+.starts,
+.length,
+.full-length {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.hidden {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+
+.teacher {
+	margin-bottom: 1rem;
+}
+
+.timer {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.start-time,
+.finish-time,
+.group,
+.type,
+.role,
+.half-length {
+  width: 50%;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+.user-type {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.start-time,
+.role {
+  margin-right: 2rem;
+}
+
+.finish-time,
+.type,
+.half-length {
+  margin-left: 2rem;
+}
+input[type="time"] {
+  font-size: 1.1em;
+}
+.find-by-id input,
+.starts input,
+.length input,
+.start-time input,
+.finish-time input,
+.hidden input,
+.group select,
+.role select,
+.type select,
+.full-length select,
+.half-length select {
+  font-size: 1.1em;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.group {
+  width: 43%;
+  margin: -0.3rem 0 2rem;
+  margin-right: 57%;
+}
+.group select,
+.role select,
+.type select,
+.full-length select,
+.half-length select {
+  border-bottom: 1px solid #dddddd;
+  font-weight: 300;
+}
+
+.form-table label {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid #dddddd;
+}
+
+.form-table label::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid #bc4123;
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+.label-select {
+  position: absolute;
+  font-size: 12px;
+  color: #bc4123;
+}
+
+.form-table input:focus + .label-input .content-name,
+.form-table input:not(:placeholder-shown) + .label-input .content-name {
+  transform: translateY(-150%);
+  font-size: 12px;
+  color: #bc4123;
+}
+
+.form-table input:focus + .label-input::after,
+.form-table input:not(:placeholder-shown) + .label-input::after {
+  transform: translateX(0%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::placeholder {
+  color: white;
+}
+
+.message {
+  diaplay: flex;
+  padding-top: 10rem;
+  text-align: center;	
+  color: #bc4123;
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  z-index: 3;
+}
+
+.add-new,
+.input-interval,
+.input-id {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

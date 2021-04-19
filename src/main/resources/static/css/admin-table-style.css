@@ -1,0 +1,65 @@
+.table-plate {
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 3.2rem 40px 40px;
+  border-radius: 5px;
+  margin-top: -3.7rem;
+  z-index: 1;
+  overflow: auto;
+}
+
+.content-table {
+	margin-top: 2rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width: 100%;
+  color: rgba(11, 23, 42, 0.95);
+  opacity: 0.85;
+}
+
+.table-name {
+  z-index: 2;
+  position: flex;
+  background-color: #bc4123;
+  border-radius: 5px;
+  height: 5rem;
+  width: 96%;
+  box-shadow: 10px 11px 15px 0px rgba(11, 23, 42, 0.25);
+}
+
+.table-name p {
+  padding: 1.5rem;
+  font-size: 1.1em;
+}
+.content-table thead tr {
+  color: #bc4123;
+  text-align: left;
+  font-weight: 300;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 25px;
+  text-align: left;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.content-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.message {
+  diaplay: flex;
+  padding-top: 10rem;
+  text-align: center;	
+  color: rgba(11, 23, 42, 0.95);
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+}

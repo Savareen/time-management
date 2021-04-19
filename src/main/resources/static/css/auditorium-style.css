@@ -1,0 +1,15 @@
+.table-plate {
+  max-width: 800px;
+  min-width: 600px;
+  height: 600px;
+}
+
+.table-name {
+  max-width: 760px;
+  min-width: 560px;
+}
+
+.content-table th,
+.content-table td {
+  text-align: center;
+}
