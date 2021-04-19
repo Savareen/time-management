@@ -1,3 +1,3 @@
 # Management
-# Full stack web application
-# University Time Management system
+Full stack web application
+University Time Management system
